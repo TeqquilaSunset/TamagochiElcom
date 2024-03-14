@@ -1,7 +1,34 @@
-﻿// See https://aka.ms/new-console-template for more information
-using TamagochiElcom;
+﻿using TamagochiElcom;
 
 ConsoleMenu menu = new ConsoleMenu();
-Tamagochi tamagochi = new Tamagochi();
+var inputName = menu.GetNameTamagochi();
+Tamagochi tamagochi = new Tamagochi(inputName);
 
-menu.PrintHud(tamagochi);
+Console.Clear();
+
+while (tamagochi.Health > 0)
+{
+    menu.PrintHud(tamagochi);
+    menu.PrintVariants();
+
+    string readNmber = Console.ReadLine();
+    switch (readNmber)
+    {
+        case "1":
+            tamagochi.Feed();
+            break;
+        case "2":
+            tamagochi.Sleep();
+            break;
+        case "3":
+            tamagochi.Play();
+            break;
+        default:
+            menu.PrintErrorMessage("Uknown variant");
+            break;
+    }
+    Console.Clear();
+}
+
+Console.WriteLine($"Sorry, {tamagochi.Name} is dead :( ");
+

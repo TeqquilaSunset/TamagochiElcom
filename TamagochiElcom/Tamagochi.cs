@@ -37,7 +37,7 @@ namespace TamagochiElcom
             Hunger = 0;
             Fatigue = 0;
         }
-        
+
         public Tamagochi(string name)
         {
             Name = name;
@@ -45,6 +45,34 @@ namespace TamagochiElcom
             Hunger = 0;
             Fatigue = 0;
         }
+       
+        public void Feed()
+        {
+            if (Hunger == 0)
+                Health--;
+            Hunger -= 4;
+        }
+
+        public void Play()
+        {
+            Fatigue++;
+            Hunger++;
+            if (Fatigue == 10)
+            {
+                Health--;
+            }
+        }
+
+        public void Sleep()
+        {
+            Fatigue = 0;
+            if (Hunger < 6)
+            {
+                Health++;
+            }
+            Hunger += 4;
+        }
+
         private int ValidateValue(int value)
         {
             if (value < 0)
@@ -60,37 +88,5 @@ namespace TamagochiElcom
                 return value;
             }
         }
-
-        public void Feed()
-        {
-            Hunger--;
-            if (Hunger < 0)
-            {
-                Hunger = 0;
-                Health--;
-            }
-        }
-
-        public void Play()
-        {
-            Fatigue++;
-            if (Fatigue > 10)
-            {
-                Fatigue = 10;
-                Health--;
-                Hunger++;
-            }
-        }
-
-        public void Sleep()
-        {
-            Fatigue = 0;
-            if (Hunger < 6)
-            {
-                Health++;
-            }
-            Hunger += 4;
-        }
-
     }
 }
