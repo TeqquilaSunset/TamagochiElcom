@@ -45,32 +45,31 @@ namespace TamagochiElcom
             Hunger = 0;
             Fatigue = 0;
         }
-       
+
         public void Feed()
         {
             if (Hunger == 0)
+            {
                 Health--;
-            Hunger -= 4;
+            }
+            Hunger--;
         }
 
         public void Play()
         {
-            Fatigue++;
-            Hunger++;
             if (Fatigue == 10)
             {
                 Health--;
             }
+            Fatigue++;
+            Hunger++;
         }
 
         public void Sleep()
         {
             Fatigue = 0;
-            if (Hunger < 6)
-            {
-                Health++;
-            }
-            Hunger += 4;
+            Health++;
+            Hunger++;
         }
 
         private int ValidateValue(int value)
