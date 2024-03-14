@@ -1,2 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+using TamagochiElcom;
+
+ConsoleMenu menu = new ConsoleMenu();
+Tamagochi tamagochi = new Tamagochi();
+
+menu.PrintHud(tamagochi);
