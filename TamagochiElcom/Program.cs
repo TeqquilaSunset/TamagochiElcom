@@ -10,8 +10,8 @@ while (tamagochi.Health > 0)
     menu.PrintHud();
     menu.PrintVariants();
 
-    string readNmber = Console.ReadLine();
-    switch (readNmber)
+    string? selectedVariant = Console.ReadLine();
+    switch (selectedVariant)
     {
         case "1":
             tamagochi.Feed();

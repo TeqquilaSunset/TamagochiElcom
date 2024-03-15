@@ -26,7 +26,7 @@
 
         public Tamagochi()
         {
-            Name = "Standart Name";
+            Name = "Standard Name";
             Health = 10;
             Hunger = 0;
             Fatigue = 0;
@@ -47,16 +47,13 @@
                 Health--;
             }
             Hunger--;
+            CheckStatus();
         }
 
         public void Play()
         {
-            if (Fatigue == 10)
-            {
-                Health--;
-            }
             Fatigue++;
-            Hunger++;
+            CheckStatus();
         }
 
         public void Sleep()
@@ -64,6 +61,20 @@
             Fatigue = 0;
             Health++;
             Hunger++;
+            CheckStatus();
+        }
+
+        private void CheckStatus()
+        {
+            if (Hunger >= 10)
+            {
+                Health--;
+            }
+            if (Fatigue >= 10)
+            {
+                Hunger++;
+                Health--;
+            }
         }
 
         private int ValidateValue(int value)
