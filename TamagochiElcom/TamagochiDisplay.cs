@@ -14,11 +14,12 @@ namespace TamagochiElcom
         public void PrintHud()
         {
             Console.WriteLine("##########################################");
-            Console.WriteLine($"{_tamagochi.Name, 15}");
+            Console.WriteLine($"{_tamagochi.Name,15}");
             Console.WriteLine("##########################################\n\n");
-            Console.WriteLine($"Health : {CreatePlusMinusString(_tamagochi.Health),-15} | {_tamagochi.Health}/10");
-            Console.WriteLine($"Hunger : {CreatePlusMinusString(_tamagochi.Hunger),-15} | {_tamagochi.Hunger}/10");
-            Console.WriteLine($"Fatigue: {CreatePlusMinusString(_tamagochi.Fatigue),-15} | {_tamagochi.Fatigue}/10");
+            Console.WriteLine($"Health   : {CreatePlusMinusString(_tamagochi.Health),-12} | {_tamagochi.Health,-2}/10");
+            Console.WriteLine($"Hunger   : {CreatePlusMinusString(_tamagochi.Hunger),-12} | {_tamagochi.Hunger,-2}/10");
+            Console.WriteLine($"Fatigue  : {CreatePlusMinusString(_tamagochi.Fatigue),-12} | {_tamagochi.Fatigue,-2}/10");
+            Console.WriteLine($"Happiness: {CreatePlusMinusString(_tamagochi.Happiness),-12} | {_tamagochi.Happiness,-2}/10");
         }
 
         public void PrintVariants()
@@ -27,6 +28,8 @@ namespace TamagochiElcom
             Console.WriteLine("1. Feed");
             Console.WriteLine("2. Sleep");
             Console.WriteLine("3. Play");
+            Console.WriteLine("4. Heal");
+            Console.WriteLine("0. Exit");
             Console.Write("\nEnter your choice: ");
         }
 

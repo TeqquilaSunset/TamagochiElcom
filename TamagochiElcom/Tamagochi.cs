@@ -5,6 +5,7 @@
         private int hunger;
         private int fatigue;
         private int health;
+        private int happiness;
         public string Name { get; set; }
         public int Hunger
         {
@@ -24,12 +25,19 @@
             set { health = ValidateValue(value); }
         }
 
+        public int Happiness
+        {
+            get { return happiness; }
+            set { happiness = ValidateValue(value); }
+        }
+
         public Tamagochi()
         {
             Name = "Standard Name";
             Health = 10;
             Hunger = 0;
             Fatigue = 0;
+            Happiness = 10;
         }
 
         public Tamagochi(string name)
@@ -38,6 +46,7 @@
             Health = 10;
             Hunger = 0;
             Fatigue = 0;
+            Happiness = 10;
         }
 
         public void Feed()
@@ -59,22 +68,41 @@
         public void Sleep()
         {
             Fatigue = 0;
-            Health++;
+            if (Hunger != 10)
+            {
+                Health++;
+            }
             Hunger++;
+            CheckStatus();
+        }
+        public void Heal()
+        {
+            Health = 10;
+            Fatigue += 5;
+            Hunger += 5;
             CheckStatus();
         }
 
         private void CheckStatus()
         {
-            if (Hunger >= 10)
+            if (Hunger == 10)
             {
                 Health--;
             }
-            if (Fatigue >= 10)
+            if (Fatigue == 10)
             {
                 Hunger++;
                 Health--;
             }
+            if (Fatigue > 4)
+            {
+                Happiness--;
+            }
+            else
+            {
+                Happiness++;
+            }
+
         }
 
         private int ValidateValue(int value)
@@ -92,5 +120,7 @@
                 return value;
             }
         }
+
+
     }
 }

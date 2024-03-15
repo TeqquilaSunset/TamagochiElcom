@@ -5,6 +5,7 @@ Tamagochi tamagochi = new Tamagochi(inputName);
 TamagochiDisplay menu = new TamagochiDisplay(tamagochi);
 Console.Clear();
 
+
 while (tamagochi.Health > 0)
 {
     menu.PrintHud();
@@ -22,6 +23,11 @@ while (tamagochi.Health > 0)
         case "3":
             tamagochi.Play();
             break;
+        case "4":
+            tamagochi.Heal();
+            break;
+        case "0":
+            return;
         default:
             UserInteraction.PrintErrorMessage("Uknown variant");
             break;
@@ -29,5 +35,11 @@ while (tamagochi.Health > 0)
     Console.Clear();
 }
 
-Console.WriteLine($"Sorry, {tamagochi.Name} is dead :( ");
+string message = "GAME OVER";
+int screenWidth = Console.WindowWidth;
+int messageWidth = message.Length;
+int leftMargin = (screenWidth - messageWidth) / 2;
+
+Console.SetCursorPosition(leftMargin, Console.CursorTop);
+Console.WriteLine(message);
 
