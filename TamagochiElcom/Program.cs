@@ -1,14 +1,13 @@
 ﻿using TamagochiElcom;
 
-ConsoleMenu menu = new ConsoleMenu();
-var inputName = menu.GetNameTamagochi();
+var inputName = UserInteraction.GetNameTamagochi();
 Tamagochi tamagochi = new Tamagochi(inputName);
-
+TamagochiDisplay menu = new TamagochiDisplay(tamagochi);
 Console.Clear();
 
 while (tamagochi.Health > 0)
 {
-    menu.PrintHud(tamagochi);
+    menu.PrintHud();
     menu.PrintVariants();
 
     string readNmber = Console.ReadLine();
@@ -24,7 +23,7 @@ while (tamagochi.Health > 0)
             tamagochi.Play();
             break;
         default:
-            menu.PrintErrorMessage("Uknown variant");
+            UserInteraction.PrintErrorMessage("Uknown variant");
             break;
     }
     Console.Clear();
