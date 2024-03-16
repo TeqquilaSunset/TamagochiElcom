@@ -8,7 +8,7 @@ namespace TamagochiElcom
 {
     internal static class UserInteraction
     {
-        public static void PrintErrorMessage(string message)
+        public static void ErrorMessage(string message)
         {
             Console.WriteLine("\nThere is a problem:");
             Console.WriteLine(message);
@@ -30,7 +30,7 @@ namespace TamagochiElcom
 
                 if (string.IsNullOrEmpty(inputName))
                 {
-                    PrintErrorMessage("Input is null or empty. Please provide a valid name.");
+                    ErrorMessage("Input is null or empty. Please provide a valid name.");
                     continue;
                 }
 
@@ -39,11 +39,11 @@ namespace TamagochiElcom
                     return inputName;
                 }
 
-                PrintErrorMessage($"Your name is more than {maxNameLength} characters long. Please provide a shorter name.");
+                ErrorMessage($"Your name is more than {maxNameLength} characters long. Please provide a shorter name.");
             }
         }
 
-        public static void PrintEndGame()
+        public static void EndGame()
         {
             string message = "\r\n░██████╗░░█████╗░███╗░░░███╗███████╗  ░█████╗░██╗░░░██╗███████╗██████╗░" +
                              "\r\n██╔════╝░██╔══██╗████╗░████║██╔════╝  ██╔══██╗██║░░░██║██╔════╝██╔══██╗" +

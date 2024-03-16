@@ -32,13 +32,13 @@ while (true)
             case "0":
                 return;
             default:
-                UserInteraction.PrintErrorMessage("Unknown variant");
+                UserInteraction.ErrorMessage("Unknown variant");
                 break;
         }
         Console.Clear();
     }
 
-    UserInteraction.PrintEndGame();
+    UserInteraction.EndGame();
 
     Console.Clear();
     Console.WriteLine("Input any key to start a new game or 0 to exit.");
