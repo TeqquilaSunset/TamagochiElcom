@@ -102,7 +102,10 @@
             {
                 Happiness++;
             }
-
+            if(Happiness == 0)
+            {
+                Health--;
+            }
         }
 
         private int ValidateValue(int value)

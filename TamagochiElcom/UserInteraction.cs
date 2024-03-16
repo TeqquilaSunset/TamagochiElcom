@@ -42,5 +42,21 @@ namespace TamagochiElcom
                 PrintErrorMessage($"Your name is more than {maxNameLength} characters long. Please provide a shorter name.");
             }
         }
+
+        public static void PrintEndGame()
+        {
+            string message = "\r\n░██████╗░░█████╗░███╗░░░███╗███████╗  ░█████╗░██╗░░░██╗███████╗██████╗░" +
+                             "\r\n██╔════╝░██╔══██╗████╗░████║██╔════╝  ██╔══██╗██║░░░██║██╔════╝██╔══██╗" +
+                             "\r\n██║░░██╗░███████║██╔████╔██║█████╗░░  ██║░░██║╚██╗░██╔╝█████╗░░██████╔╝" +
+                             "\r\n██║░░╚██╗██╔══██║██║╚██╔╝██║██╔══╝░░  ██║░░██║░╚████╔╝░██╔══╝░░██╔══██╗" +
+                             "\r\n╚██████╔╝██║░░██║██║░╚═╝░██║███████╗  ╚█████╔╝░░╚██╔╝░░███████╗██║░░██║" +
+                             "\r\n░╚═════╝░╚═╝░░╚═╝╚═╝░░░░░╚═╝╚══════╝  ░╚════╝░░░░╚═╝░░░╚══════╝╚═╝░░╚═╝";
+
+            Console.WriteLine(message);
+            Console.WriteLine("\n\nIt looks like your pet is sick, try better next time");
+            Console.WriteLine("Press any key to continue...");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }

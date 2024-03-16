@@ -13,9 +13,15 @@ namespace TamagochiElcom
 
         public void PrintHud()
         {
-            Console.WriteLine("##########################################");
-            Console.WriteLine($"{_tamagochi.Name,15}");
-            Console.WriteLine("##########################################\n\n");
+            string border = "##########################################";
+            string name = _tamagochi.Name;
+            int totalWidth = border.Length;
+            int leftSpaces = (totalWidth - name.Length) / 2;
+            int rightSpaces = totalWidth - name.Length - leftSpaces;
+            Console.WriteLine(border);
+            Console.WriteLine($"##{new string(' ', leftSpaces - 2)}{name}{new string(' ', rightSpaces -2)}##");
+            Console.WriteLine(border);
+
             Console.WriteLine($"Health   : {CreatePlusMinusString(_tamagochi.Health),-12} | {_tamagochi.Health,-2}/10");
             Console.WriteLine($"Hunger   : {CreatePlusMinusString(_tamagochi.Hunger),-12} | {_tamagochi.Hunger,-2}/10");
             Console.WriteLine($"Fatigue  : {CreatePlusMinusString(_tamagochi.Fatigue),-12} | {_tamagochi.Fatigue,-2}/10");
