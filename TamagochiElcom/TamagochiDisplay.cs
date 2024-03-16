@@ -4,7 +4,7 @@ namespace TamagochiElcom
 {
     internal class TamagochiDisplay
     {
-        ITamagochi _tamagochi;
+        private readonly ITamagochi _tamagochi;
 
         public TamagochiDisplay(ITamagochi tamagochi)
         {
